@@ -9,55 +9,66 @@ import CorporateFareOutlinedIcon from '@mui/icons-material/CorporateFareOutlined
 import PublicOutlinedIcon from '@mui/icons-material/PublicOutlined';
 import LockIcon from '@mui/icons-material/Lock';
 
-import { BlockNameLock, BoxItem, BoxSelect, BoxTitle, DescrItem, StyleCloseIcon, StyleLockIcon, TitleItem } from './PrivateButtonStyle';
+import { BlockNameLock, BoxSelect, BoxTitle, StyleCloseIcon, StyleLockIcon } from './PrivateButtonStyle';
 import { Item } from "./Item";
 
 
-interface PrivateItems {
+interface PrivateItem {
     icon: JSX.Element,
     title: string,
     act: boolean,
     description: string,
 }
 
+interface PrivateItes {
+    pvivat: PrivateItem,
+    work: PrivateItem,
+    organ: PrivateItem,
+    public: PrivateItem,
+}
 
-const PrivateItems: PrivateItems[] = [
-    {
+
+
+const PrivateItems: PrivateItes = {
+    pvivat: {
         icon: <LockOutlinedIcon sx={{ fill: 'red', width: '20px', height: '20px', padding: '4px' }} />,
         title: 'Приватная',
         act: true,
         description: 'Просматривать и изменять эту доску могут только добавленные на нее участники.'
     },
-    {
+    work: {
         icon: <GroupOutlinedIcon sx={{ fill: 'black', width: '20px', height: '20px', padding: '4px' }} />,
         title: 'Рабочее пространство',
         act: false,
         description: 'Просматривать и изменять эту доску могут все участники рабочего пространства «sardor0906200: рабочее пространство».'
     },
-    {
+    organ: {
         icon: <CorporateFareOutlinedIcon sx={{ fill: 'black', width: '20px', height: '20px', padding: '4px' }} />,
         title: 'Организация',
         act: false,
         description: 'Просматривать эту доску могут все сотрудники организации. Чтобы предоставить это разрешение, доску нужно добавить в корпоративное рабочее пространство.'
     },
-    {
+    public: {
         icon: <PublicOutlinedIcon sx={{ fill: 'green', width: '20px', height: '20px', padding: '4px' }} />,
         title: 'Публичная',
         act: false,
         description: 'Просматривать эту доску могут все в Интернете. Изменять ее могут только участники.'
     },
-]
+}
+
 
 
 export const PrivateButton = () => {
     const [open, setOpen] = useState<boolean>(false);
+    const [actMode, setActMode] = useState<any>(PrivateItems.pvivat)
 
     return (
         <ClickAwayListener onClickAway={() => setOpen(false)}>
             <Box sx={{ position: 'relative' }}>
                 <BlockNameLock onClick={() => setOpen(!open)}>
                     <LockIcon sx={StyleLockIcon} />
-                    <p>Приватная</p>
+                    {actMode.icon}
+                    {actMode.title}
                 </BlockNameLock>
                 {open ? (
                     <BoxSelect>
@@ -65,9 +76,11 @@ export const PrivateButton = () => {
                             <p>Изменение видимости</p>
                             <CloseIcon onClick={() => setOpen(!open)} sx={StyleCloseIcon} />
                         </BoxTitle>
-                        <Box>
-                            {PrivateItems.map((item, index) => <Item item={item} index={index} />)}
-                        </Box>
+                        {
+                            Object.entries(PrivateItems).map((item, index): any => (
+                                <Item item={item} index={index} changeMode={() => setActMode(item[1])} />
+                            ))
+                        }
                     </BoxSelect>
                 ) : null}
             </Box>

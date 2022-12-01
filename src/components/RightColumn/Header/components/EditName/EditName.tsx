@@ -9,7 +9,7 @@ import { BlockName, StarIconStyle } from './EditNameStyle';
 export const EditName = () => {
     const [act, setAct] = useState<boolean>(false)
     const [editValue, setEditValue] = useState<boolean>(true)
-    const [value, setValue] = useState<string>('Zeon Bones')
+    const [value, setValue] = useState<string>('Zeon Bonus')
 
     const hanldeSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();

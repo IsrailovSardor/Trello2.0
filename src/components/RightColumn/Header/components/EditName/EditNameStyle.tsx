@@ -15,11 +15,13 @@ export const BlockName = styled.div`
         line-height: 32px;
         margin-right: 6px;
         border-radius: 3px;
+        cursor: pointer;
         &:hover {
             background-color: rgba(255, 255, 255, 0.7);
         }
     }
     input {
+        
         background-color: white;
         height: 32px;
         border-radius: 3px;

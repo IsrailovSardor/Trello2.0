@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const WrapperLeftColumn = styled.div`
-    flex: 1;
+    min-width: 260px;
     height: 100%;
     background-color: #026AA7;
     border-right: 1px solid #dfe1e67e;
@@ -84,3 +84,14 @@ export const BlockWrapperText = styled.div`
     font-weight: 600;
     color: white;
 `
+export const Style = {
+    fill: 'white',
+    cursor: 'pointer',
+    width: '22px',
+    height: '22px',
+}
+export const VanilaStyle = {
+    display: "flex",
+    alignItems: 'center',
+    gap: '6px'
+}

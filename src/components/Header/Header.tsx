@@ -4,6 +4,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import { TittleBtn, TittleInput, TittleName, TittleText, Wrapper, WrapperBlock, WrapperLeft } from './HeaderStyles';
+import { Box } from '@mui/system';
 
 
 interface NavigationItem {
@@ -43,7 +44,7 @@ const NavigationIcons: NavigationIcon[] = [
 
 export const Header = () => {
     return (
-        <Wrapper>
+        <Wrapper >
             <WrapperLeft>
                 <ViewQuiltIcon sx={NavigationIconsStyle} />
 
@@ -59,8 +60,8 @@ export const Header = () => {
 
             <WrapperLeft>
                 <TittleInput type="text" placeholder='Поиск' />
-                
-                {NavigationIcons.map(item => item.icon)}
+
+                {NavigationIcons.map((item, index) => <Box key={index}>{item.icon}</Box>)}
             </WrapperLeft>
         </Wrapper>
     )

@@ -9,6 +9,12 @@ export const Wrapper = styled.div`
     max-height: 44px;
     width: 100%;
     padding: 6px 4px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
 `
 export const WrapperLeft = styled.div`
     display: flex;

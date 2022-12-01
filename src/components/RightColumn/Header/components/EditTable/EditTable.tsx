@@ -14,51 +14,64 @@ import { BlockTable, BtnLink, BoxFooterBtn, BoxFooterDescr, BoxFooterLink, BoxFo
 import { Item } from './Item';
 
 
-interface TableItems {
+interface TableItem {
     icon: JSX.Element,
     checked: boolean,
     title: string,
     lock: boolean,
 }
-const TableItems: TableItems[] = [
-    {
+
+interface TableItems {
+    table: TableItem,
+    tablic: TableItem
+    calendar: TableItem
+    hronol: TableItem
+    panel: TableItem
+    map: TableItem
+}
+
+const TableItems: TableItems = {
+    table: {
         icon: <EqualizerRoundedIcon sx={{ ...StyleTableIcon, rotate: '180deg' }} />,
         checked: true,
         title: 'По доске',
         lock: false,
     },
-    {
+    tablic: {
         icon: <CalendarViewWeekOutlinedIcon sx={StyleTableIcon} />,
         checked: false,
         title: 'Таблица',
         lock: true,
     },
-    {
+    calendar: {
         icon: <CalendarMonthOutlinedIcon sx={StyleTableIcon} />,
         checked: false,
         title: 'Календарь',
         lock: true,
-    }, {
+    },
+    hronol: {
         icon: <ClearAllRoundedIcon sx={StyleTableIcon} />,
         checked: false,
         title: 'Хронология',
         lock: true,
-    }, {
+    },
+    panel: {
         icon: <SpeedRoundedIcon sx={StyleTableIcon} />,
         checked: false,
         title: 'Панель',
-        lock: true,
-    }, {
+        lock: false,
+    },
+    map: {
         icon: <LocationOnOutlinedIcon sx={StyleTableIcon} />,
         checked: false,
         title: 'Карта',
         lock: true,
-    },
-]
+    }
+}
+
 
 export const EditTable = () => {
     const [open, setOpen] = useState<boolean>(false);
-
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -74,7 +87,8 @@ export const EditTable = () => {
                 <Box sx={{ position: 'relative' }}>
                     <BtnLink onClick={() => setOpen(!open)}>
                         <ExpandMoreIcon sx={{
-                            fill: "white",
+                            fill: 'white',
+                            cursor: 'pointer'
                         }} />
                     </BtnLink>
                     {open ? (
@@ -84,9 +98,11 @@ export const EditTable = () => {
                                 <CloseIcon onClick={() => setOpen(!open)} sx={StyleCloseIcon} />
                             </BoxTitle>
                             <Box sx={{ marginBottom: '8px' }}>
-                                {TableItems.map((item, index) =>
-                                    <Item item={item} index={index} />
-                                )}
+                                {
+                                    Object.entries(TableItems).map((item: [string, TableItem], index: number) => (
+                                        <Item item={item} index={index} key={index} />
+                                    ))
+                                }
                             </Box>
                             <Box>
                                 <BoxFooterTitle>Взгляните на свои проекты по-новому</BoxFooterTitle>

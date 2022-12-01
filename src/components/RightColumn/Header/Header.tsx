@@ -1,15 +1,13 @@
 import styled from "styled-components"
-import { Style } from "../../LeftColumn/LeftColumn"
-import LockIcon from '@mui/icons-material/Lock';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+
 import FilterListIcon from '@mui/icons-material/FilterList';
-import BoltIcon from '@mui/icons-material/Bolt';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { PrivateButton } from "./components/PrivateButton/PrivateButton";
 import { EditName } from "./components/EditName/EditName";
 import { EditTable } from "./components/EditTable/EditTable";
+import { Improve } from "./components/Improve/Improve";
+import { Automation } from "./components/Automation/Automation";
 
 
 export const Header = () => {
@@ -26,20 +24,26 @@ export const Header = () => {
 
 
             <WrapperBlockLeftRoght>
-                <BtnImprove><RocketLaunchIcon sx={{ marginRight: '4px', fill: 'white', padding: '4px' }} />Улучшения</BtnImprove>
-                <BtnImprove><BoltIcon sx={{ marginRight: '4px', fill: 'white', padding: '2px' }} />Автоматизация</BtnImprove>
+                <Improve />
+                <Automation />
                 <Line />
-                <BtnImprove>
+                <BtnImprove style={{
+                    cursor: 'not-allowed'
+                }}>
                     <FilterListIcon sx={{ fill: "white", padding: '4px' }} />
                     Фильтр
                 </BtnImprove>
                 <Line />
-                <BtnSharet>
+                <BtnSharet style={{
+                    cursor: 'not-allowed'
+                }}>
                     <PersonAddIcon sx={{ fill: "black", padding: '4px' }} />
                     Поделиться
                 </BtnSharet>
                 <Line />
-                <BtnLink >
+                <BtnLink style={{
+                    cursor: 'not-allowed'
+                }}>
                     <MoreHorizIcon sx={{ fill: "white", padding: '2px' }} />
                 </BtnLink>
             </WrapperBlockLeftRoght>
@@ -54,11 +58,19 @@ export const WrapperHeader = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    overflow: scroll;
+    white-space: nowrap;
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
 `
 export const WrapperBlockLeftRoght = styled.div`
-     display: flex;
-        align-items: center;
-        gap: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    margin-right: 8px;
 `
 export const BtnImprove = styled.button`
     display: flex;

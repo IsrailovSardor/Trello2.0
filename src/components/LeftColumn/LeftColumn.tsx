@@ -2,19 +2,9 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import StarIcon from '@mui/icons-material/Star';
 import { NavigationIconsStyle } from "../Header/Header";
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import { BlockWrapperIcon, BlockWrapperText, LogoProject, MyTable, MyTableWrapper, NameProject, NameProjectActive, SwitchBtn, TextProject, TittleNameProject, WrapperLeftColumn } from "./LeftColumnStyle";
+import { BlockWrapperIcon, BlockWrapperText, LogoProject, MyTable, MyTableWrapper, NameProject, NameProjectActive, Style, SwitchBtn, TextProject, TittleNameProject, VanilaStyle, WrapperLeftColumn } from "./LeftColumnStyle";
 
-export const Style = {
-    fill: 'white',
-    cursor: 'pointer',
-    width: '22px',
-    height: '22px',
-}
-const VanilaStyle = {
-    display: "flex",
-    alignItems: 'center',
-    gap: '6px'
-}
+
 
 
 export const LeftColumn = () => {
