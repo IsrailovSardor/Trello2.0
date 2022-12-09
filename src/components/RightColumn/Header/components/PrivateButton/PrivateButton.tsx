@@ -64,9 +64,11 @@ export const PrivateButton = () => {
 
     return (
         <ClickAwayListener onClickAway={() => setOpen(false)}>
+            {/* <p>Hello</p> */}
             <Box sx={{ position: 'relative' }}>
-                <BlockNameLock onClick={() => setOpen(!open)}>
-                    <LockIcon sx={StyleLockIcon} />
+                <BlockNameLock onClick={() => setOpen(true)}>
+                    Изменение видимости
+                    {/* <LockIcon sx={StyleLockIcon} /> */}
                     {actMode.icon}
                     {actMode.title}
                 </BlockNameLock>
@@ -78,7 +80,7 @@ export const PrivateButton = () => {
                         </BoxTitle>
                         {
                             Object.entries(PrivateItems).map((item, index): any => (
-                                <Item item={item} index={index} changeMode={() => setActMode(item[1])} />
+                                <Item item={item} index={index} changeMode={() => { setActMode(item[1]), setOpen(false) }} />
                             ))
                         }
                     </BoxSelect>

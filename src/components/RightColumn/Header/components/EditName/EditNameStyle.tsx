@@ -4,6 +4,7 @@ export const BlockName = styled.div`
     display: flex;
     align-items: center;
     height: 32px;
+    white-space: nowrap;
 
     p {
         color: white;

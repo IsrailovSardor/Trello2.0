@@ -59,6 +59,7 @@ export const Table = () => {
         }
     ])
 
+
     const [currentBoard, setCurrentBoard] = useState<any>()
     const [currentItem, setCurrentItem] = useState<any>()
 

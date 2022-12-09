@@ -12,6 +12,7 @@ function App() {
       <WpapperMain>
         <LeftColumn />
         <RightColumn />
+        <p>Hello</p>
       </WpapperMain>
     </div>
   )

@@ -58,8 +58,6 @@ export const WrapperHeader = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    overflow: scroll;
-    white-space: nowrap;
     &::-webkit-scrollbar {
         width: 0;
         height: 0;

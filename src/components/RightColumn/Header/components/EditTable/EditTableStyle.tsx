@@ -13,6 +13,7 @@ export const BlockTable = styled.div`
     height: 32px;
 
     p {
+        white-space: nowrap;
         color: #000;
         font-size: 14px;
         font-family: 'Roboto', sans-serif;

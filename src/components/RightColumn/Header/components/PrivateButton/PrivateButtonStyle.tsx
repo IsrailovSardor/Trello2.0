@@ -4,7 +4,7 @@ export const BoxSelect = styled.div`
     position: absolute;
     top: 40px;
     left: 0;
-    z-index: 10;
+    z-index: 1000;
     background-color: white;
     width: 304px;
     border-radius: 3px;
@@ -18,6 +18,7 @@ export const BoxTitle = styled.div`
     margin-bottom: 8px;
 
     p {
+        white-space: nowrap;
         line-height: 40px;
         font-size: 14px;
         font-weight: 400;   

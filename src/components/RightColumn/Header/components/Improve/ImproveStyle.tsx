@@ -18,6 +18,7 @@ export const BoxTitle = styled.div`
     margin-bottom: 8px;
 
     p {
+        white-space: nowrap;
         line-height: 40px;
         font-size: 14px;
         font-weight: 400;   
